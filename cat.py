@@ -1,4 +1,4 @@
-'''
+s'''
 This program prints stdin to the screen.
 '''
 import sys
