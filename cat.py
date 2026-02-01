@@ -5,7 +5,7 @@ import sys
 
 def cat(file):
     while True:
-        chunk = file.read(64 * 1024)
+        chunk = file.read(4096)
         if not chunk:
             break
         sys.stdout.buffer.write(chunk)
