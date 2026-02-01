@@ -1,11 +1,8 @@
-s'''
-This program prints stdin to the screen.
-'''
 import sys
 
 def cat(file):
-    data = file.read()
-    sys.stdout.buffer.write(data)
+    for chunk in iter(lambda: file.read(8192), b""):
+        sys.stdout.buffer.write(chunk)
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -14,3 +11,4 @@ if __name__ == "__main__":
                 cat(f)
     else:
         cat(sys.stdin.buffer)
+
